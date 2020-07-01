@@ -17,7 +17,7 @@ export class EmployeesService {
   }
 
   postData(params: any): Observable<Employees> {
-    return this.http.post<Employees>(this.JSON_URL, { params });
+    return this.http.post<Employees>(this.JSON_URL, params);
   }
 
   updateEmployees(id: Number, params: Object = {}): Observable<Employees> {

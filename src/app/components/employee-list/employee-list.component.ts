@@ -12,6 +12,7 @@ export class EmployeeListComponent implements OnInit {
 
   show: boolean = false;
   employees: Object;
+  filteredItems: any;
 
   frm = new FormGroup({
     employee_name: new FormControl(''),
@@ -29,6 +30,7 @@ export class EmployeeListComponent implements OnInit {
     this.service.getAllEmployees().subscribe(data => {
       this.employees = data;
       this.show = true;
+      this.assignCopy();
     });
   }
 
@@ -65,6 +67,43 @@ export class EmployeeListComponent implements OnInit {
       console.log(data);
       this.getAllEmployees();
     });
+  }
+
+  assignCopy() {
+    this.filteredItems = Object.assign([], this.employees);
+  }
+
+  filterName(value) {
+    console.log(value);
+    if (!value) {
+      // when nothing has typed
+      this.assignCopy();
+    }
+    this.filteredItems = Object.assign([], this.employees).filter(
+      item => item.employee_name.toLowerCase().indexOf(value.toLowerCase()) > -1
+    )
+  }
+
+  filterSalary(value) {
+    console.log(value);
+    if (!value) {
+      // when nothing has typed
+      this.assignCopy();
+    }
+    this.filteredItems = Object.assign([], this.employees).filter(
+      item => item.employee_salary.indexOf(value) > -1
+    )
+  }
+
+  filterAge(value) {
+    console.log(value);
+    if (!value) {
+      // when nothing has typed
+      this.assignCopy();
+    }
+    this.filteredItems = Object.assign([], this.employees).filter(
+      item => item.employee_age.indexOf(value) > -1
+    )
   }
 
   employee_name() {

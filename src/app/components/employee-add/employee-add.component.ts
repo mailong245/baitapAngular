@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeesService } from '../../services/employees.service';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-add',
@@ -24,7 +25,7 @@ export class EmployeeAddComponent implements OnInit {
 
   });
 
-  constructor(private service: EmployeesService) { }
+  constructor(private service: EmployeesService, private router: Router) { }
 
   ngOnInit() { }
 
@@ -32,6 +33,7 @@ export class EmployeeAddComponent implements OnInit {
     e.preventDefault();
 
     let params = {
+      id: Math.floor((Math.random() * 1000) + 1),
       employee_name: this.frm.get('employee_name').value,
       employee_salary: this.frm.get('employee_salary').value,
       employee_age: this.frm.get('employee_age').value,
@@ -40,10 +42,11 @@ export class EmployeeAddComponent implements OnInit {
 
     this.service.postData(params).subscribe(response => {
       console.log(response);
+      this.router.navigate(['employees']);
     });
 
   }
-  
+
   employee_name() {
     return this.frm.get("employee_name");
   }
