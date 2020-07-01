@@ -31,4 +31,22 @@ export class EmployeesService {
     return this.http.delete(url);
   }
 
+  findEmployeeByName(name: String): Observable<Employees> {
+    console.log(name);
+    let url = `${this.JSON_URL}?employee_name=${name}`;
+    return this.http.get<Employees>(url);
+  }
+
+  findEmployeeBySalary(salary: any): Observable<Employees> {
+    console.log(salary);
+    let url = `${this.JSON_URL}?employee_salary=${salary}`;
+    return this.http.get<Employees>(url);
+  }
+
+  findEmployeeByAge(age: any): Observable<Employees> {
+    console.log(age);
+    let url = `${this.JSON_URL}?employee_age=${age}`;
+    return this.http.get<Employees>(url);
+  }
+
 }
