@@ -42,7 +42,7 @@ export class EmployeeAddComponent implements OnInit {
 
     this.service.postData(params).subscribe(response => {
       console.log(response);
-      this.router.navigate(['employees']);
+      this.router.navigate(['']);
     });
 
   }

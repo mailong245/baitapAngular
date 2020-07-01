@@ -12,9 +12,15 @@ export class EmployeesService {
 
   constructor(private http: HttpClient) { }
 
+  getEmployeeById(id: Number): Observable<Employees> {
+    let url = `${this.JSON_URL}/${id}`;
+    return this.http.get<Employees>(url);
+  }
+
   getAllEmployees(): Observable<Employees> {
     return this.http.get<Employees>(this.JSON_URL);
   }
+
 
   postData(params: any): Observable<Employees> {
     return this.http.post<Employees>(this.JSON_URL, params);
@@ -23,7 +29,7 @@ export class EmployeesService {
   updateEmployees(id: Number, params: Object = {}): Observable<Employees> {
     let url = `${this.JSON_URL}/${id}`;
     console.log(url);
-    return this.http.put<Employees>(url, { params });
+    return this.http.put<Employees>(url, params);
   }
 
   deleteEmployees(id: Number) {
