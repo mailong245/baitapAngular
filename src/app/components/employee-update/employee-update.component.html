@@ -1,10 +1,10 @@
 <div class="container">
-    <h1>Update Post</h1>
-    <form [formGroup]="frm" (ngSubmit)="updatePost($event)">
+    <h1>Update Employee</h1>
+    <form [formGroup]="frm" (ngSubmit)="updateEmployees($event)">
         <label>Title : </label><br>
         <input type="text" placeholder="Title" formControlName="title" class="form-control"><br>
         <label>Body : </label><br>
-        <textarea placeholder="Type the body of Post here" formControlName="body" class="form-control"
+        <textarea placeholder="Type the body of Employee here" formControlName="body" class="form-control"
             rows="10"></textarea><br><br>
         <button type="submit" class="btn-primary">Submit</button>
     </form>

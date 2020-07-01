@@ -6,16 +6,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PostListComponent } from './components/post-list/post-list.component';
-import { PostAddComponent } from './components/post-add/post-add.component';
-import { PostUpdateComponent } from './components/post-update/post-update.component';
+import { EmployeeListComponent } from './components/employee-list/employee-list.component';
+import { EmployeeAddComponent } from './components/employee-add/employee-add.component';
+import { EmployeeUpdateComponent } from './components/employee-update/employee-update.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostListComponent,
-    PostAddComponent,
-    PostUpdateComponent
+    EmployeeListComponent,
+    EmployeeAddComponent,
+    EmployeeUpdateComponent
   ],
   imports: [
     BrowserModule,

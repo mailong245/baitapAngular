@@ -1,24 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { PostsService } from '../../services/posts.service';
+import { EmployeesService } from '../../services/employees.service';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-post-add',
-  templateUrl: './post-add.component.html',
-  styleUrls: ['./post-add.component.css']
+  selector: 'app-employee-add',
+  templateUrl: './employee-add.component.html',
+  styleUrls: ['./employee-add.component.css']
 })
-export class PostAddComponent implements OnInit {
+export class EmployeeAddComponent implements OnInit {
 
   frm = new FormGroup({
     title: new FormControl(''),
     body: new FormControl('')
   });
 
-  constructor(private service: PostsService) { }
+  constructor(private service: EmployeesService) { }
 
   ngOnInit() { }
 
-  submitPost(e) {
+  submitEmployee(e) {
     e.preventDefault();
 
     let params = {
